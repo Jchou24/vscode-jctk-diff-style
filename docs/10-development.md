@@ -14,7 +14,11 @@ pnpm install:vscode
 
 - 編譯、打包、裝進 VS Code 一次做完（步驟在 `package.json` 的那個 script，這裡不複述）
 - 裝完要 **Reload Window**（Ctrl+Shift+P → Developer: Reload Window）才生效
+    - 開著的每一個 VS Code 視窗都要 Reload：沒 Reload 的那一個還跑著舊版，兩個視窗表現不一樣
 - ⚠️ 以 vsix 安裝的擴充**預設不自動更新** ⇒ 改了程式碼要重跑上面那一行
+- 換回 Marketplace 的版本（之後會自動更新）
+    - 版本號跟本機那一份一樣時，`code --install-extension Jchou24.vscode-jctk-diff-style --force` 不會重裝（只回「已經裝了」）
+    - ⇒ 先 `code --uninstall-extension Jchou24.vscode-jctk-diff-style`，再 `code --install-extension Jchou24.vscode-jctk-diff-style`
 
 ---
 
@@ -84,6 +88,10 @@ pnpm format:check
         - 那支擴充的「⋯」→ Update，上傳新的 vsix
         - 可能會跳 reCAPTCHA，要人來點（第一次上傳跳過、更新那一次沒跳）
         - 上傳後先是 Verifying，掃描完才對外公開（幾分鐘）
+- 公開之後驗收
+    - 公開頁 `https://marketplace.visualstudio.com/items?itemName=Jchou24.vscode-jctk-diff-style` 寫的是新的版本號
+    - 介紹頁的圖真的載入了：看圖的實際寬度（瀏覽器裡 `img.naturalWidth` 大於 0），不是只看 `<img>` 在不在
+    - VS Code 的擴充搜尋找得到：搜 `jctk diff style`
 - 原始碼在 GitHub：`https://github.com/Jchou24/vscode-jctk-diff-style`（`package.json` 的 `repository`）
     - README 裡的圖、連到其他檔案的連結：打包時 vsce 換成這個 repo 的網址
     - ⇒ 改了 README 用到的圖，要先 push 上去，Marketplace 的介紹頁才看得到
@@ -104,4 +112,7 @@ pnpm format:check
     - 兩個獨立的 VS Code（一個沒裝擴充、一個裝了）以 `--diff` 開同一份範例 diff 的兩個檔
     - 兩邊同樣的視窗大小、主題（Dark Modern）、設定；錯誤波浪線用顏色設定設成透明
     - 範例改了、預設樣式改了，就要重拍
+    - ⚠️ 平常用的 VS Code 有更新還沒裝完時（Windows），另開的獨立 VS Code 起不來
+        - 它會先等「更新中」的鎖 30 秒，等不到就自己結束，不出視窗
+        - ⇒ 先關掉所有 VS Code 視窗讓更新裝完，再拍
 - 兩種語言的內容要一致：改一邊時另一邊同一批改

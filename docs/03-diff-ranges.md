@@ -119,3 +119,6 @@
 - 不偵測搬移的程式碼：搬移的那一段照新增 / 刪除算
 - 多檔 diff、merge editor 不畫框線
 - 單欄時刪除的那幾行不畫：那是 VS Code 插進來的顯示區塊
+    - 編輯器太窄時 VS Code 會自己把 diff 切成單欄（`diffEditor.useInlineViewWhenSpaceIsLimited` 預設開）
+        - 使用者看到的是「刪除那一側的框不見了」
+        - 關掉那個設定就一直並排：README〈已知限制〉寫給使用者

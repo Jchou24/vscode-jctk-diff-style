@@ -58,7 +58,7 @@ Run **Jctk Diff Style: Remove Colors Written to Settings** first. Otherwise the 
 ## Known limitations
 
 - Only regular diff tabs, side by side or inline. Multi-file diffs (such as Source Control's View Changes) and the merge editor get no borders.
-- In the inline view, deleted lines get no borders: VS Code draws them in an area extensions cannot decorate.
+- In the inline view, deleted lines get no borders: VS Code draws them in an area extensions cannot decorate. VS Code switches a diff to the inline view by itself when the editor is narrow; set `"diffEditor.useInlineViewWhenSpaceIsLimited": false` to keep it side by side.
 - Comments are found by each language's comment symbols, not by syntax analysis. A comment symbol inside a multi-line string may be treated as the start of a comment.
 - Borders come from the same diff algorithm VS Code uses, packaged from an older VS Code version. In rare cases a border and VS Code's own highlight can differ slightly.
 
@@ -124,6 +124,6 @@ Run **Jctk Diff Style: Remove Colors Written to Settings** first. Otherwise the 
 ## 已知限制
 
 - 只處理一般的 diff 分頁（並排或單欄）。多檔 diff（例如原始檔控制的 View Changes）與合併編輯器不畫框線。
-- 單欄顯示時，刪除的那幾行不畫框線：VS Code 把它們畫在擴充無法加上裝飾的區域。
+- 單欄顯示時，刪除的那幾行不畫框線：VS Code 把它們畫在擴充無法加上裝飾的區域。編輯器太窄時 VS Code 會自己把 diff 切成單欄；設定 `"diffEditor.useInlineViewWhenSpaceIsLimited": false` 就會一直並排。
 - 註解是照各語言的註解符號找的，不是語法分析；跨行字串裡出現註解符號時，可能被當成註解的開頭。
 - 框線用的是 VS Code 同一套比對演算法，打包自較舊的 VS Code 版本；少數情況下框線與 VS Code 自己的上色會有些微差異。
