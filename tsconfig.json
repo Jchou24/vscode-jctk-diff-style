@@ -1,0 +1,21 @@
+{
+    // 只做型別檢查；產出由 esbuild 打包（`package.json` 的 build）。本專案自帶完整設定。
+    // src/webview 跑在面板的瀏覽器環境 ⇒ lib 帶 DOM；其餘跑在 extension host（Node）。
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "preserve",
+        "moduleResolution": "bundler",
+        "lib": ["ES2022", "DOM"],
+        // TS 6 不再隱式載入 node_modules/@types/* ⇒ 用到的兩份要明寫
+        "types": ["node", "vscode"],
+        "strict": true,
+        "noUncheckedIndexedAccess": true,
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "noEmit": true,
+        // 測試 import 打包選項的 build.mts：.mts 不帶副檔名時解析不到
+        "allowImportingTsExtensions": true
+    },
+    "include": ["src/**/*.ts", "tests/**/*", "vitest.config.mts", "build.mts"]
+}

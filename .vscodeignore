@@ -1,0 +1,26 @@
+# 打包進 .vsix 的只要 dist/、README、CHANGELOG、package.nls*——dist 已由 esbuild 把執行期相依一起打包進去
+src/**
+tests/**
+docs/**
+.vscode/**
+build.mts
+vitest.config.mts
+tsconfig*.json
+**/*.map
+node_modules/**
+# 開發用的設定：不打包
+mise.toml
+.gitignore
+.prettierrc
+.prettierignore
+eslint.config.mjs
+pnpm-lock.yaml
+# 程式裡的翻譯表已由 esbuild 打包進 dist/（見 src/displayLanguage.ts）
+l10n/**
+# 圖示的原稿：Marketplace 只收 PNG，打包進去的是 images/icon.png
+images/*.svg
+# README 的截圖：Marketplace 從 repo 的網址讀，不必打包
+images/compare.*
+
+# 打包產物自己不要再被包進去（固定檔名 ⇒ 第二次打包時它已存在）
+*.vsix

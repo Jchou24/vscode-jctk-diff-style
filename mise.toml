@@ -1,0 +1,4 @@
+# 開發用的 Node / pnpm 版本：cd 進本目錄時 mise 自動切換
+[tools]
+node = "24.15.0"
+pnpm = "10.34.3"

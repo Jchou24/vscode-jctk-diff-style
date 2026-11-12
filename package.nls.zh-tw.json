@@ -1,0 +1,14 @@
+{
+    "description": "diff 畫面裡改動的字加框線；底色、框線、註解色、行號色有設定面板，可存多組參數、一鍵切換",
+    "command.openPanel.title": "開啟設定面板",
+    "command.switchPreset.title": "切換參數組",
+    "command.openSample.title": "開啟範例 diff",
+    "command.clearColors.title": "移除寫進設定的顏色",
+    "command.showLog.title": "開啟診斷紀錄",
+    "configuration.presets.description": "參數組，由設定面板維護；寫在專案設定（.vscode/settings.json）時跟著版控、只套用到那個專案；都沒設時用內建的兩組",
+    "configuration.activePreset.description": "目前套用的參數組名稱；找不到時用第一組",
+    "configuration.language.description": "這支擴充的通知、狀態列、設定面板、範例 diff 用的語言；命令選擇區裡的命令名一律跟著 VS Code 的顯示語言",
+    "configuration.language.auto": "跟著 VS Code 的顯示語言",
+    "configuration.language.en": "English",
+    "configuration.language.zh-tw": "繁體中文"
+}

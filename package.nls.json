@@ -1,0 +1,14 @@
+{
+    "description": "Borders around the changed characters in the diff view, with a live settings panel for backgrounds, borders, comment color and line number colors; keep several presets and switch in one click",
+    "command.openPanel.title": "Open Settings Panel",
+    "command.switchPreset.title": "Switch Preset",
+    "command.openSample.title": "Open Sample Diff",
+    "command.clearColors.title": "Remove Colors Written to Settings",
+    "command.showLog.title": "Open Log",
+    "configuration.presets.description": "Presets, maintained by the settings panel. Written to workspace settings (.vscode/settings.json), they follow version control and apply to that project only. Built-in presets are used when none are set.",
+    "configuration.activePreset.description": "Name of the preset in use; the first preset is used when the name is not found",
+    "configuration.language.description": "Language of this extension's notifications, status bar, settings panel and sample diff. Command names in the Command Palette always follow VS Code's display language.",
+    "configuration.language.auto": "Follow VS Code's display language",
+    "configuration.language.en": "English",
+    "configuration.language.zh-tw": "繁體中文"
+}

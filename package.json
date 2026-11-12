@@ -1,0 +1,131 @@
+{
+    "name": "vscode-jctk-diff-style",
+    "displayName": "jctk diff style",
+    "description": "%description%",
+    "icon": "images/icon.png",
+    "version": "0.2.1",
+    "type": "commonjs",
+    "private": true,
+    "publisher": "Jchou24",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Jchou24/vscode-jctk-diff-style.git"
+    },
+    "engines": {
+        "vscode": "^1.90.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "main": "./dist/extension.js",
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "contributes": {
+        "commands": [
+            {
+                "command": "jctkDiffStyle.openPanel",
+                "title": "%command.openPanel.title%",
+                "icon": "$(symbol-color)",
+                "category": "Jctk Diff Style"
+            },
+            {
+                "command": "jctkDiffStyle.switchPreset",
+                "title": "%command.switchPreset.title%",
+                "category": "Jctk Diff Style"
+            },
+            {
+                "command": "jctkDiffStyle.openSample",
+                "title": "%command.openSample.title%",
+                "category": "Jctk Diff Style"
+            },
+            {
+                "command": "jctkDiffStyle.clearColors",
+                "title": "%command.clearColors.title%",
+                "category": "Jctk Diff Style"
+            },
+            {
+                "command": "jctkDiffStyle.showLog",
+                "title": "%command.showLog.title%",
+                "category": "Jctk Diff Style"
+            }
+        ],
+        "menus": {
+            "editor/title": [
+                {
+                    "command": "jctkDiffStyle.openPanel",
+                    "group": "navigation",
+                    "when": "isInDiffEditor"
+                }
+            ]
+        },
+        "configuration": {
+            "title": "jctk diff style",
+            "properties": {
+                "jctkDiffStyle.presets": {
+                    "type": "array",
+                    "default": [],
+                    "items": {
+                        "type": "object"
+                    },
+                    "description": "%configuration.presets.description%"
+                },
+                "jctkDiffStyle.activePreset": {
+                    "type": "string",
+                    "default": "",
+                    "description": "%configuration.activePreset.description%"
+                },
+                "jctkDiffStyle.language": {
+                    "type": "string",
+                    "enum": [
+                        "auto",
+                        "en",
+                        "zh-tw"
+                    ],
+                    "enumDescriptions": [
+                        "%configuration.language.auto%",
+                        "%configuration.language.en%",
+                        "%configuration.language.zh-tw%"
+                    ],
+                    "default": "auto",
+                    "scope": "application",
+                    "description": "%configuration.language.description%"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "build": "node build.mts",
+        "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
+        "package": "pnpm dlx @vscode/vsce package --no-dependencies --out vscode-jctk-diff-style.vsix",
+        "install:vscode": "pnpm run build && pnpm run package && code --install-extension vscode-jctk-diff-style.vsix --force",
+        "typecheck": "tsc --noEmit",
+        "test": "vitest run",
+        "lint": "eslint .",
+        "format": "prettier --write .",
+        "format:check": "prettier --check ."
+    },
+    "dependencies": {
+        "@vscode/l10n": "^0.0.18",
+        "jsonc-parser": "^3.2.0",
+        "vscode-diff": "^3.0.1"
+    },
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "@types/node": "^22.13.4",
+        "@types/vscode": "^1.90.0",
+        "esbuild": "^0.28.2",
+        "eslint": "^10.5.0",
+        "globals": "^17.6.0",
+        "prettier": "^3.6.2",
+        "typescript": "^6.0.3",
+        "typescript-eslint": "^8.61.0",
+        "vitest": "^4.1.9"
+    },
+    "pnpm": {
+        "onlyBuiltDependencies": [
+            "esbuild"
+        ]
+    }
+}

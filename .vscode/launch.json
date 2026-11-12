@@ -1,0 +1,13 @@
+{
+    // 以本目錄為 workspace 開 VS Code 時按 F5：開一個載入本擴充的視窗（先 pnpm build，載入的是 dist/）
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "jctk diff style（擴充開發）",
+            "type": "extensionHost",
+            "request": "launch",
+            "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
+            "outFiles": ["${workspaceFolder}/dist/**/*.js"]
+        }
+    ]
+}
